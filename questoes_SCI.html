@@ -1,407 +1,338 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="pt">
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="QUESTIONÁRIOS">
-    <meta name="description" content="">
-    <title>Questões de Sitema de Comando de Incidente</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-    <link rel="stylesheet" href="QUEST.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <meta name="generator" content="Nicepage 5.3.2, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-<style>ul > li::marker {
-    font-weight: bold;
-  }</style>
-
-  <style>
-    .selecionado {
-       background-color: #99d49b !important;
-       color: rgb(0, 0, 0);
-       font-Weight: bold;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: left;
+        background-color: #f7f7f7;
+        padding: 20px;
+        margin: 0;
     }
-    
-    .card{
-      background-color: #4CAF50;
-      border: none;
-      color: rgb(0, 0, 0);
-      padding: 7px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
+    .quiz-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .card1{
-      background-color: #4CAF50;
-      border: none;
-      color: rgb(0, 0, 0);
-      padding: 7px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
+    button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
     }
-    </style>
-
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": ""
-}</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="QUEST">
-    <meta property="og:type" content="website">
+    button:hover {
+        background-color: #0056b3;
+    }
+    .correct {
+        color: #28a745;
+        font-weight: bold;
+    }
+    .incorrect {
+        color: #dc3545;
+    }
+    .question {
+        margin-bottom: 20px;
+    }
+    .answer {
+        display: none;
+        margin-top: 10px;
+    }
+    hr {
+        border: 1px solid #000;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
 </head>
-
-<body data-home-page="QUEST.html" data-home-page-title="QUEST" class="u-body u-xl-mode" data-lang="pt">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <header class="u-clearfix u-header u-header" id="sec-69e5">
-        <div classb="u-clearfix u-sheet u-sheet-1"></div>
-    </header>
-    <section class="u-align-left u-clearfix u-section-1" id="sec-76ac">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <div>
-                <ul>
-                    <h1 class="u-align-center u-text ">Questões de Sitema de Comando de Incidente:</h1><h2 class="u-align-center u-text">Conceitos e Princípios do SCI</h2>
-                </ul>
-                <ul id="questoes" align="justify">
-                    <div id="yt"></div>
-                </ul>
-                <div id="resp"></div>
-            </div>
-            <p>
-            <div style="display: inline-block"><div style="display: inline-block"><input class="card1" type="button" value="Gerar questões" onclick="preencher(seleciona(15, questoes));"></div>
-            <div style="display: inline-block"><input type="button" value="Gabarito" class="card"></div>
-            </div>
-            <div id="div1">
-                <ul>
-                    
-                </ul>
-            </div>
-            <div class="div2">
-
-                <div id="ytr" style="display:none;"></div>
-
-            </div>
-            <script type="text/javascript">
-
-            var questoes = [
-                    {
-                        pergunta: "O que siginifica SCI?",
-
-                        resp: [
-                            "Sistema de Comando de Incidente.",
-                            "Sistema de Controle de Incidente.",
-                            "Sistema de Comando de Incêndio.",
-                            "Ferramenta de gerenciamento padronizada para tipos específicos de sinistros.",
-                            "Ferramenta de gerenciamento padronizada para tipos de incêndios em residência."
-                        ]
-                    },
-                    {
-                        pergunta: "O Sistema de Comando de Incidente veio evoluído ao longo dos tempos, um dos problemas que foram corrigidos está relacionado abaixo, marque a alternatica correta:",
-
-                        resp: [
-                            "Ordens diferentes.",
-                            "Necessidades de equipamentos novos.",
-                            "Serviço Florestal.",
-                            "Sistema para coordenar Ordem Unida.",
-                            "Comunicação eficaz."
-                        ]
-                    },
-                    {
-                        pergunta: "De acordo com o Desenvolvimento do SCI, assinale a opção INCORRETA.",
-
-                        resp: [
-                            "Aplicação em situações idênticas com melhorias na resposta aos eventos específicos.",
-
-                            "Unidade responsável, com pessoal qualificado, investimento e uma única missão; Maior segurança para os membros, equipe e demais.",
-
-                            "Colaboração de diversas agências; Melhoria no alcance dos objetivos.",
-
-                            "Inúmeros testes em campo (situações reais); Uso eficiente dos recursos.",
-
-                            "Aplicação em diferentes situações; Evitou desperdício dos esforços; Padronização (agências, estados e países)."
-                        ]
-                    },
-
-                    {
-                        pergunta: "Assinale a nomeclatura INCORRETA:",
-
-                        resp: [
-                            "SCS - Sistema de controle de Salvamento.",
-
-                            "ICS - Incident Command System.",
-
-                            "SCO – Sistema de Comando de Operações.",
-
-                            "SICOE – Sistema de Comando de Operações de Emergência.",
-
-                            "SCI - Sistema de Comando de Incidente."
-                        ]
-                    },
-                    {
-                        pergunta: "Assinale a Opção CORRETA:",
-
-                        resp: [
-                            "Incidente – Evento indesejável que causa danos aos seres vivos, meio ambiente ou patrimônio.",
-                            "Sistema – Evento desejável que não causa danos aos seres vivos, meio ambiente ou patrimônio.",
-                            "Comando – Evento indesejável que causa danos aos seres vivos,.",
-                            "Incidente – Coordenação, orientação.",
-                            "Comando – Conjunto de partes que operam como um todo."
-                        ]
-                    },
-                    {
-                        pergunta: "De acordo com o conceito de Estratégia e Tática de SCI. Dentre as alternativas abaixo a única INCORRETA é:",
-
-                        resp: [
-                            "Estratégia: Condições favoráveis de que porventura se desfrute, de modo a não atingir determinados objetivos.",
-                            "Tática: Empregar as tropas no campo de batalha com ordens.",
-                            "Estratégia: Arte de planejar e coordenar os recursos de que se dispõe.",
-                            "Estratégia: Explorar de maneira vantajosa situações.",
-                            "Tática: Empregar as tropas no campo de batalha com rapidez e recíproca proteção."
-                        ]
-                    },
-                    {
-                        pergunta:  "No SCI a administração de eventos envolve várias etapas que devem ser cuidadosamente planejadas e executadas para garantir o sucesso , abaixo estão listada algumas fases de um evento (genéricas), exceto:",
-
-                        resp: [
-                            "Questão.",
-
-                            "Preparação.",
-
-                            "Resposta.",
-
-                            "Recuperação.",
-
-                            "Prevenção.",
-
-                        ]
-                    },
-                    {
-                        pergunta: "De acordo com a administração de eventos no Sistema de Comando de Incidente. Assinale a opção INCORRETA:",
-
-                        resp: [
-                            "Preparação e prevenção: Reestabelecimento dos serviços essenciais.",
-
-                            "Resposta: Busca e Salvamento; Proteção dos bens.",
-
-                            "Recuperação: Reconstrução.",
-
-                            "Preparação e prevenção: Identificações e definições; Ações e Mitigações; Planos; Instruções; Treinamentos.",
-
-                            "Serviços essenciais: Trafegabilidade, Saneamento, Comunicação, Saúde, Energia..",
-
-                        ]
-                    },
-                    {
-                        pergunta: "De acordo com a administração de eventos no Sistema de Comando de Incidente, Gestão e liderança são duas funções distintas. Assinale a opção INCORRETA:",
-
-                        resp: [
-                            "Gestão: motiva e orienta a equipe, definindo direções, valores e expectativas.",
-
-                            "Gestão: Gerenciamento (alocação, controle, solicitação, etc...).",
-
-                            "Liderança: Gerenciamento das respostas humanas frente uma crise; Tratamento pessoal específico de acordo com a situação.",
-
-                            "Liderança: inspirar pessoas a trabalhar em direção a um objetivo comum.",
-
-                            "Gestão: Responsabilidade de planejar, organizar, dirigir e controlar as atividades da equipe.",
-
-                        ]
-                    },
-                    {
-                        pergunta: "São princípios do SCI, EXCETO:",
-
-                        resp: [
-                            "Maximizar a ingerência política.",
-
-                            "Terminologia comum; Plano de Ação de Incidente.",
-
-                            "Alcance de controle; Comando unificado; Manejo integral dos recursos.",
-
-                            "Organização modular; Comunicações integradas.",
-
-                            "Cadeia de comando; Instalações padronizadas.",
-
-                        ]
-                    },
-                    {
-                        pergunta: "De acordo com os princípios do SCI. Assinale a alternativa INCORRETA:",
-
-                        resp: [
-                            "Comando Unificado: Trabalho em equipe (humildade / objetivo comum); pode haver mais de um Plano de Ação de Incidente - PAI.",
-
-                            "Alcance de controle: Máximo 7 (Obrigatório); Ideal 5 (Recomendado); Mínimo 3 (Recomendado).",
-
-                            "Organização modular: Modificação de baixo pra cima (demanda do evento); Modificação de cima para baixo (ordens do CI).",
-
-                            "Plano de Ação de Incidente - PAI: Planejamento operacional específico para um determinado incidente; Confeccionado para ser empregado após 04 horas de evento.",
-
-                            "Manejo Integral dos Recursos GArante: Otimização, controle e contabilidade dos recursos; Segurança; Redução das ingerências.",
-
-                        ]
-                    },
-                    {
-                        pergunta: "Um posto de comando é um local onde uma equipe coordenadora pode monitorar e gerenciar operações em tempo real, Dentre as alternativas abaixo a única INCORRETA é.",
-
-                        resp: [
-                            "Posto de Comando: Local onde os recursos devem aguardar a determinação.",
-
-                            "Somente um Posto de comando; Identificação – Retângulo laranja medindo 90x110cm, com as letras PC na cor preta; Tamanho e complexidade de acordo com o evento.",
-
-                            "Membros que ficam no PC: Comandante do Incidente; Staff do Comando; Chefes das seções; Líderes de outras agências.",
-
-                            "São requesistos do Posto de Comando: Local seguro (em relação ao evento); Afastado dos ruídos gerados pelo incidente; Visão integral da cena do incidente; Possibilidade de expansão; Controle de acesso (segurança); Vigilância.",
-
-                            "Para eventos com duração prolongada, é recomendado providenciar uma instalação aprimorada.",
-
-                        ]
-                    },
-                    {
-                        pergunta: "Dentre as instalações padronizadas do SCI temos a Área de Espera - E, Dentre as alternativas abaixo a única INCORRETA é.",
-
-                        resp: [
-                            "É o local onde tem o monitoramento constante da equipe de saúde.",
-
-                            "Recepção e cadastramento dos recursos (check-in); Identificação – Círculo de 90cm de diâmetro na cor amarela com a letra “E” na cor preta.",
-
-                            "Vantagens da Área de Espera: Controle, Organização, Segurança, Substituições e Evita a atuação em massa.",
-
-                            "Local onde os recursos devem aguardar a determinação.",
-
-                            "Requesitos da Área de Espera: Local seguro, Deve comportar os recursos, Distância do evento – 05 minutos, Locais diferentes para entrada e saída dos recursos e Controle de acesso (segurança).",
-
-                        ]
-                    },
-                    {
-                        pergunta: "Assinale a alternativa INCORRETA a respeito das instalações padronizadas do SCI:",
-
-                        resp: [
-                            "Área de Concentração de Vítimas: Local onde os recursos devem aguardar a determinação.",
-
-                            "Área de Concentração de Vítimas: Monitoramento constante da equipe de saúde; Identificação – Círculo com 90cm de diâmetro na cor amarela com as letras ACV na cor preta.",
-
-                            "São Rquesitos da Área de Concentração de Vítimas: Local seguro, Fácil acesso, Próximo do incidente, Recursos necessários para o atendimento das vítimas.",
-
-                            "São Rquesitos da Área de Concentração de Vítimas: Área morgue (vítimas pretas); Locais de entrada e saída diferentes para o transporte das vítimas.",
-
-                            "São também instalações padronizadas: Base, Acampamento, Helibase, Helipono.",
-
-                        ]
-                    },
-                    {
-                        pergunta: "Assinale a alternativa CORRETA a respeito das instalações padronizadas do SCI:",
-
-                        resp: [
-                            "Posto de Comando - PC: Identificação – Retângulo laranja medindo 90x110cm, com as letras PC na cor preta.",
-
-                            "Área de Concentração de Vítimas: Identificação – Círculo de 90cm de diâmetro na cor amarela com a letra ACV na cor azul.",
-
-                            "Área de Espera - E: Identificação – Círculo com 90cm de diâmetro na cor laranja com as letras E na cor preta.",
-
-                            "Posto de Comando - PC:  Identificação – Retângulo laranja medindo 80x110cm, com as letras PC na cor Azul.",
-
-                            "Área de Espera - E: Identificação – Círculo com 80cm de diâmetro na cor amarela com as letras E na cor preta.",
-
-                        ]
-                    },
-                ];       
-                
-                function shuffled(arr) {
-                    arr = arr.slice(); // shallow copy
-                    for (var p = arr.length; p;) {
-                        var n = Math.random() * p-- | 0;
-                        var tmp = arr[n];
-                        arr[n] = arr[p];
-                        arr[p] = tmp;
-                    }
-                    return arr;
-                }
-
-                function seleciona(n, qarray) {
-                    // embaralha e pega os N primeiros
-                    return shuffled(qarray).slice(0, n);
-                }
-
-
-
-                function preencher(questoes) {
-                    var imagem = document.getElementById("ytr")
-                    var ulQuestoes = document.querySelector('#questoes');
-                    ulQuestoes.innerHTML = ' ';
-                    imagem.innerHTML = ' ';
-
-
-
-                    for (var questao of questoes) {
-
-                        var liQuestao = document.createElement('li');
-                        var pQuestao = document.createElement('p');
-                        var p1Questao = document.createElement('p');
-                        var divQuestao = document.createElement('div');
-                        var divresp = document.createElement('li');
-
-                        ulQuestoes.appendChild(liQuestao);
-                        imagem.appendChild(divresp);
-
-                        liQuestao.appendChild(document.createTextNode(questao.pergunta));
-
-                        liQuestao.appendChild(divQuestao);
-                        liQuestao.style.listStyle = 'decimal inside';
-                        divresp.style.listStyle = 'decimal inside';
-                        divQuestao.style.width = '100%';
-                        divQuestao.style.border = '1px solid #000';
-
-                        var ulAlternativas = document.createElement('ul');
-                        divresp.appendChild(document.createTextNode("Resposta: " + shuffled(questao.resp[0])))
-
-                        for (var alternativa of shuffled(questao.resp)) {
-                            var posicao = alternativa.indexOf(questao.resp[0]);
-                            var li = document.createElement('li');
-                            li.appendChild(document.createTextNode(alternativa))
-                            li.style.listStyle = 'lower-alpha';// usa letras minúsculas  
-                            li.setAttribute("class", "iderespp" + posicao);                      
-                            ulAlternativas.appendChild(li);
-                            ulAlternativas.appendChild(p1Questao);
-
-                            //li.style.color = 'lightgreen';
-
-                        }
-                        liQuestao.appendChild(ulAlternativas);
-
-                    }
-                }
-                
-            </script>
-            
-        </div>
-        <script>
-
-            $(".card").click(function() {
-              $(this).removeClass("selecionado");
-              $(".iderespp0").addClass("selecionado");
+<body>
+
+<div class="quiz-container">
+    <center><h2>Questões de Sitema de Comando de Incidente:</h2>
+</h1>Conceitos e Princípios do SCI</h1><br><br><br></center>
+    <label for="select-questions">Selecione a quantidade de questões:</label>
+    <select id="select-questions" onchange="setNumberOfQuestions()">
+        <option value="">Selecione...</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="all">Todas</option>
+    </select>
+    <div id="quiz"></div>
+    <button onclick="shuffleQuestions()">Atualizar Perguntas</button>
+</div>
+
+<script>
+    let selectedNumberOfQuestions = null;
+    let questions = [
+        {
+    "question": "O Sistema de Comando de Incidente veio evoluído ao longo dos tempos, um dos problemas que foram corrigidos está relacionado abaixo, marque a alternatica correta:",
+    "answers": [
+        "Ordens diferentes.",
+        "Necessidades de equipamentos novos.",
+        "Serviço Florestal.",
+        "Sistema para coordenar Ordem Unida.",
+        "Comunicação eficaz."
+    ],
+    "correctAnswer": "Ordens diferentes."
+},
+{
+    "question": "O que significa SCI?",
+    "answers": [
+        "Sistema de Comando de Incidente.",
+        "Sistema de Controle de Incidente.",
+        "Sistema de Comando de Incêndio.",
+        "Ferramenta de gerenciamento padronizada para tipos específicos de sinistros.",
+        "Ferramenta de gerenciamento padronizada para tipos de incêndios em residência."
+    ],
+    "correctAnswer": "Sistema de Comando de Incidente."
+},
+{
+    "question": "De acordo com o Desenvolvimento do SCI, assinale a opção INCORRETA.",
+    "answers": [
+        "Aplicação em situações idênticas com melhorias na resposta aos eventos específicos.",
+        "Unidade responsável, com pessoal qualificado, investimento e uma única missão; Maior segurança para os membros, equipe e demais.",
+        "Colaboração de diversas agências; Melhoria no alcance dos objetivos.",
+        "Inúmeros testes em campo (situações reais); Uso eficiente dos recursos.",
+        "Aplicação em diferentes situações; Evitou desperdício dos esforços; Padronização (agências, estados e países)."
+    ],
+    "correctAnswer": "Aplicação em situações idênticas com melhorias na resposta aos eventos específicos."
+},
+{
+    "question": "Assinale a nomeclatura INCORRETA:",
+    "answers": [
+        "SCS - Sistema de controle de Salvamento.",
+        "ICS - Incident Command System.",
+        "SCO – Sistema de Comando de Operações.",
+        "SICOE – Sistema de Comando de Operações de Emergência.",
+        "SCI - Sistema de Comando de Incidente."
+    ],
+    "correctAnswer": "SCS - Sistema de controle de Salvamento."
+},
+
+    {
+        "question": "Assinale a Opção CORRETA:",
+        "answers": [
+            "Incidente – Evento indesejável que causa danos aos seres vivos, meio ambiente ou patrimônio.",
+            "Sistema – Evento desejável que não causa danos aos seres vivos, meio ambiente ou patrimônio.",
+            "Comando – Evento indesejável que causa danos aos seres vivos.",
+            "Incidente – Coordenação, orientação.",
+            "Comando – Conjunto de partes que operam como um todo."
+        ],
+        "correctAnswer": "Incidente – Evento indesejável que causa danos aos seres vivos, meio ambiente ou patrimônio."
+    },
+    {
+        "question": "De acordo com o conceito de Estratégia e Tática de SCI. Dentre as alternativas abaixo a única INCORRETA é:",
+        "answers": [
+            "Estratégia: Condições favoráveis de que porventura se desfrute, de modo a não atingir determinados objetivos.",
+            "Tática: Empregar as tropas no campo de batalha com ordens.",
+            "Estratégia: Arte de planejar e coordenar os recursos de que se dispõe.",
+            "Estratégia: Explorar de maneira vantajosa situações.",
+            "Tática: Empregar as tropas no campo de batalha com rapidez e recíproca proteção."
+        ],
+        "correctAnswer": "Estratégia: Condições favoráveis de que porventura se desfrute, de modo a não atingir determinados objetivos."
+    },
+    {
+        "question": "No SCI a administração de eventos envolve várias etapas que devem ser cuidadosamente planejadas e executadas para garantir o sucesso, abaixo estão listada algumas fases de um evento (genéricas), exceto:",
+        "answers": [
+            "Questão.",
+            "Preparação.",
+            "Resposta.",
+            "Recuperação.",
+            "Prevenção."
+        ],
+        "correctAnswer": "Questão."
+    },
+
+    {
+        "question": "De acordo com a administração de eventos no Sistema de Comando de Incidente. Assinale a opção INCORRETA:",
+        "answers": [
+            "Preparação e prevenção: Reestabelecimento dos serviços essenciais.",
+            "Resposta: Busca e Salvamento; Proteção dos bens.",
+            "Recuperação: Reconstrução.",
+            "Preparação e prevenção: Identificações e definições; Ações e Mitigações; Planos; Instruções; Treinamentos.",
+            "Serviços essenciais: Trafegabilidade, Saneamento, Comunicação, Saúde, Energia."
+        ],
+        "correctAnswer": "Preparação e prevenção: Reestabelecimento dos serviços essenciais."
+    },
+    {
+        "question": "De acordo com a administração de eventos no Sistema de Comando de Incidente, Gestão e liderança são duas funções distintas. Assinale a opção INCORRETA:",
+        "answers": [
+            "Gestão: motiva e orienta a equipe, definindo direções, valores e expectativas.",
+            "Gestão: Gerenciamento (alocação, controle, solicitação, etc...).",
+            "Liderança: Gerenciamento das respostas humanas frente uma crise; Tratamento pessoal específico de acordo com a situação.",
+            "Liderança: inspirar pessoas a trabalhar em direção a um objetivo comum.",
+            "Gestão: Responsabilidade de planejar, organizar, dirigir e controlar as atividades da equipe."
+        ],
+        "correctAnswer": "Gestão: motiva e orienta a equipe, definindo direções, valores e expectativas."
+    },
+    {
+        "question": "São princípios do SCI, EXCETO:",
+        "answers": [
+            "Maximizar a ingerência política.",
+            "Terminologia comum; Plano de Ação de Incidente.",
+            "Alcance de controle; Comando unificado; Manejo integral dos recursos.",
+            "Organização modular; Comunicações integradas.",
+            "Cadeia de comando; Instalações padronizadas."
+        ],
+        "correctAnswer": "Maximizar a ingerência política."
+    },
+    
+    {
+        "question": "De acordo com os princípios do SCI. Assinale a alternativa INCORRETA:",
+        "answers": [
+            "Comando Unificado: Trabalho em equipe (humildade / objetivo comum); pode haver mais de um Plano de Ação de Incidente - PAI.",
+            "Alcance de controle: Máximo 7 (Obrigatório); Ideal 5 (Recomendado); Mínimo 3 (Recomendado).",
+            "Organização modular: Modificação de baixo pra cima (demanda do evento); Modificação de cima para baixo (ordens do CI).",
+            "Plano de Ação de Incidente - PAI: Planejamento operacional específico para um determinado incidente; Confeccionado para ser empregado após 04 horas de evento.",
+            "Manejo Integral dos Recursos GArante: Otimização, controle e contabilidade dos recursos; Segurança; Redução das ingerências."
+        ],
+        "correctAnswer": "Comando Unificado: Trabalho em equipe (humildade / objetivo comum); pode haver mais de um Plano de Ação de Incidente - PAI."
+    },
+    {
+        "question": "Um posto de comando é um local onde uma equipe coordenadora pode monitorar e gerenciar operações em tempo real, Dentre as alternativas abaixo a única INCORRETA é.",
+        "answers": [
+            "Posto de Comando: Local onde os recursos devem aguardar a determinação.",
+            "Somente um Posto de comando; Identificação – Retângulo laranja medindo 90x110cm, com as letras PC na cor preta; Tamanho e complexidade de acordo com o evento.",
+            "Membros que ficam no PC: Comandante do Incidente; Staff do Comando; Chefes das seções; Líderes de outras agências.",
+            "São requesistos do Posto de Comando: Local seguro (em relação ao evento); Afastado dos ruídos gerados pelo incidente; Visão integral da cena do incidente; Possibilidade de expansão; Controle de acesso (segurança); Vigilância.",
+            "Para eventos com duração prolongada, é recomendado providenciar uma instalação aprimorada."
+        ],
+        "correctAnswer": "Posto de Comando: Local onde os recursos devem aguardar a determinação."
+    },
+    {
+        "question": "Dentre as instalações padronizadas do SCI temos a Área de Espera - E, Dentre as alternativas abaixo a única INCORRETA é.",
+        "answers": [
+            "É o local onde tem o monitoramento constante da equipe de saúde.",
+            "Recepção e cadastramento dos recursos (check-in); Identificação – Círculo de 90cm de diâmetro na cor amarela com a letra “E” na cor preta.",
+            "Vantagens da Área de Espera: Controle, Organização, Segurança, Substituições e Evita a atuação em massa.",
+            "Local onde os recursos devem aguardar a determinação.",
+            "Requesitos da Área de Espera: Local seguro, Deve comportar os recursos, Distância do evento – 05 minutos, Locais diferentes para entrada e saída dos recursos e Controle de acesso (segurança)."
+        ],
+        "correctAnswer": "É o local onde tem o monitoramento constante da equipe de saúde."
+    },
+
+    {
+        "question": "Assinale a alternativa INCORRETA a respeito das instalações padronizadas do SCI:",
+        "answers": [
+            "Área de Concentração de Vítimas: Local onde os recursos devem aguardar a determinação.",
+            "Área de Concentração de Vítimas: Monitoramento constante da equipe de saúde; Identificação – Círculo com 90cm de diâmetro na cor amarela com as letras ACV na cor preta.",
+            "São Requesitos da Área de Concentração de Vítimas: Local seguro, Fácil acesso, Próximo do incidente, Recursos necessários para o atendimento das vítimas.",
+            "São Requesitos da Área de Concentração de Vítimas: Área morgue (vítimas pretas); Locais de entrada e saída diferentes para o transporte das vítimas.",
+            "São também instalações padronizadas: Base, Acampamento, Helibase, Helipono."
+        ],
+        "correctAnswer": "Área de Concentração de Vítimas: Local onde os recursos devem aguardar a determinação."
+    },
+    {
+        "question": "Assinale a alternativa CORRETA a respeito das instalações padronizadas do SCI:",
+        "answers": [
+            "Posto de Comando - PC: Identificação – Retângulo laranja medindo 90x110cm, com as letras PC na cor preta.",
+            "Área de Concentração de Vítimas: Identificação – Círculo de 90cm de diâmetro na cor amarela com a letra ACV na cor azul.",
+            "Área de Espera - E: Identificação – Círculo com 90cm de diâmetro na cor laranja com as letras E na cor preta.",
+            "Posto de Comando - PC: Identificação – Retângulo laranja medindo 80x110cm, com as letras PC na cor Azul.",
+            "Área de Espera - E: Identificação – Círculo com 80cm de diâmetro na cor amarela com as letras E na cor preta."
+        ],
+        "correctAnswer": "Posto de Comando - PC: Identificação – Retângulo laranja medindo 90x110cm, com as letras PC na cor preta."
+    }
+
+
+    
+  
+  ];
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function renderQuiz() {
+        let quizElement = document.getElementById("quiz");
+        if (selectedNumberOfQuestions) {
+            quizElement.innerHTML = "";
+            shuffleArray(questions);
+
+            let numToShow = selectedNumberOfQuestions === "all" ? questions.length : selectedNumberOfQuestions;
+
+            questions.slice(0, numToShow).forEach((q, index) => {
+                shuffleArray(q.answers); // Embaralha as respostas
+                let answersHtml = q.answers.map((answer, ansIndex) => `
+                    <input type="radio" id="q${index}a${ansIndex}" name="q${index}" value="${answer}">
+                    <label for="q${index}a${ansIndex}">${answer}</label><br>
+                `).join('');
+
+                quizElement.innerHTML += `
+                    <div class="question">
+                        <p style="margin-bottom: 10px;">${index + 1}. ${q.question}</p>
+                        ${answersHtml}
+                        <button id="btnToggle${index}" onclick="toggleAnswer(${index}, '${q.correctAnswer}')">Ver Resposta</button>
+                        <div class="answer" id="answer${index}" style="display: none;">
+                            Resposta: <span class="correct">${q.correctAnswer}</span>
+                        </div>
+                        <div id="result${index}" style="display: none;"></div>
+                        <hr>
+                    </div>
+                `;
             });
-                </script>
-    </section>
+        } else {
+            quizElement.innerHTML = "<p>Selecione a quantidade de questões no menu suspenso acima.</p>";
+        }
+    }
 
+    function toggleAnswer(index, correctAnswer) {
+        let answerElement = document.getElementById(`answer${index}`);
+        let resultElement = document.getElementById(`result${index}`);
+        let btnToggle = document.getElementById(`btnToggle${index}`);
 
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-37c3">
-        <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
-    </footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-        <span>Para embaralhar as questões é só clicar em Gerar questões novamente.</span>
+        if (answerElement.style.display === 'none') {
+            let radioButtons = document.querySelectorAll(`input[name=q${index}]`);
+            let selectedAnswer = Array.from(radioButtons).find(radio => radio.checked);
 
-    </section>
+            if (selectedAnswer) {
+                if (selectedAnswer.value === correctAnswer) {
+                    resultElement.innerText = "Você acertou!";
+                    resultElement.style.color = '#28a745';
+                } else {
+                    resultElement.innerText = "Você errou!";
+                    resultElement.style.color = '#dc3545';
+                }
+
+                answerElement.style.display = 'block';
+                resultElement.style.display = 'block';
+                btnToggle.innerText = "Esconder Resposta";
+            } else {
+                alert("Por favor, selecione uma resposta antes de ver a resposta correta.");
+            }
+        } else {
+            answerElement.style.display = 'none';
+            resultElement.style.display = 'none';
+            btnToggle.innerText = "Ver Resposta";
+        }
+    }
+
+    function shuffleQuestions() {
+        renderQuiz();
+    }
+
+    function setNumberOfQuestions() {
+        let selectElement = document.getElementById("select-questions");
+        selectedNumberOfQuestions = selectElement.value;
+        renderQuiz();
+    }
+
+</script>
 
 </body>
-
 </html>
