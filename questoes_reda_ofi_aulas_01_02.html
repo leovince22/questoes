@@ -3,34 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questões de Redação Oficial</title>
+<title>Quiz</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         text-align: left;
+        background-color: #f7f7f7;
+        padding: 20px;
+        margin: 0;
     }
     .quiz-container {
         max-width: 600px;
         margin: 0 auto;
         padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     button {
         padding: 10px 20px;
         margin-top: 10px;
         cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+    }
+    button:hover {
+        background-color: #0056b3;
     }
     .correct {
-        color: green;
+        color: #28a745;
         font-weight: bold;
     }
     .incorrect {
-        color: red;
+        color: #dc3545;
     }
     .question {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
     .answer {
         display: none;
+        margin-top: 10px;
+    }
+    hr {
+        border: 1px solid #000;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 </style>
 </head>
@@ -348,10 +367,6 @@
     ],
     "correctAnswer": "A pessoa ou entidade a quem a mensagem é dirigida e captada."
 }
-
-
-
-
     ];
 
     function shuffleArray(array) {
@@ -378,12 +393,13 @@
 
                 quizElement.innerHTML += `
                     <div class="question">
-                        <p>${index + 1}. ${q.question}</p>
+                        <p style="margin-bottom: 10px;">${index + 1}. ${q.question}</p>
                         ${answersHtml}
-                        <button id="btnToggle${index}" onclick="toggleAnswer(${index})">Ver Resposta</button>
+                        <button id="btnToggle${index}" onclick="toggleAnswer(${index}, '${q.correctAnswer}')">Ver Resposta</button>
                         <div class="answer" id="answer${index}" style="display: none;">
                             Resposta: <span class="correct">${q.correctAnswer}</span>
                         </div>
+                        <div id="result${index}" style="display: none;"></div>
                         <hr>
                     </div>
                 `;
@@ -393,25 +409,34 @@
         }
     }
 
-    function toggleAnswer(index) {
-        let radioButtons = document.querySelectorAll(`input[name=q${index}]`);
-        let selectedAnswer = Array.from(radioButtons).find(radio => radio.checked);
+    function toggleAnswer(index, correctAnswer) {
+        let answerElement = document.getElementById(`answer${index}`);
+        let resultElement = document.getElementById(`result${index}`);
+        let btnToggle = document.getElementById(`btnToggle${index}`);
 
-        if (selectedAnswer) {
-            let answerElement = document.getElementById(`answer${index}`);
-            let correctAnswerElement = answerElement.querySelector('.correct');
-            
-            if (answerElement.style.display === 'none') {
+        if (answerElement.style.display === 'none') {
+            let radioButtons = document.querySelectorAll(`input[name=q${index}]`);
+            let selectedAnswer = Array.from(radioButtons).find(radio => radio.checked);
+
+            if (selectedAnswer) {
+                if (selectedAnswer.value === correctAnswer) {
+                    resultElement.innerText = "Você acertou!";
+                    resultElement.style.color = '#28a745';
+                } else {
+                    resultElement.innerText = "Você errou!";
+                    resultElement.style.color = '#dc3545';
+                }
+
                 answerElement.style.display = 'block';
-                correctAnswerElement.style.color = 'green';
-                correctAnswerElement.style.fontWeight = 'bold';
-                document.getElementById(`btnToggle${index}`).innerText = "Esconder Resposta";
+                resultElement.style.display = 'block';
+                btnToggle.innerText = "Esconder Resposta";
             } else {
-                answerElement.style.display = 'none';
-                document.getElementById(`btnToggle${index}`).innerText = "Ver Resposta";
+                alert("Por favor, selecione uma resposta antes de ver a resposta correta.");
             }
         } else {
-            alert("Por favor, selecione uma resposta antes de ver a resposta correta.");
+            answerElement.style.display = 'none';
+            resultElement.style.display = 'none';
+            btnToggle.innerText = "Ver Resposta";
         }
     }
 
